@@ -27,4 +27,6 @@
 
 package com.grab.sizer
 
+import com.github.ajalt.clikt.core.main
+
 fun main(args: Array<String>) = AnalyzerCommand().main(args)

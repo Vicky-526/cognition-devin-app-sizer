@@ -193,7 +193,7 @@ class DefaultApkFileParserTest {
         override fun getInfoPerFile(apk: Path): Map<String, ZipEntryInfo> =
             mockApkSizeInfo?.rawFileSizeMap
                 ?.mapValues { (_, size) ->
-                    ZipEntryInfo(size, ZipEntryInfo.Alignment.ALIGNMENT_NONE, false, false, 0)
+                    ZipEntryInfo(size, ZipEntryInfo.Alignment.ALIGNMENT_NONE, false, emptyList())
                 }
                 ?: emptyMap()
     }
