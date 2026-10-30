@@ -1,10 +1,10 @@
 [versions]
 app-sizer-version = "SNAPSHOT"
-android-gradle-plugin = "9.0.1"
-coreKtx = "1.13.1"
-kotlin = "2.3.21"
-appcompat = "1.7.0"
-navigation = "2.7.7"
+android-gradle-plugin = "9.5.0"
+coreKtx = "1.17.0"
+kotlin = "2.4.21"
+appcompat = "1.7.1"
+navigation = "2.9.8"
 
 # Tests
 junit = "4.13.2"

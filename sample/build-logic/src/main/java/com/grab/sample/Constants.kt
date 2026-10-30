@@ -30,11 +30,11 @@ package com.grab.sample
 import org.gradle.api.JavaVersion
 
 object BuildConfig {
-    const val COMPILE_SDK = 34
+    const val COMPILE_SDK = 37
     const val JVM_TARGET = "17"
     val JAVA_VERSION = JavaVersion.VERSION_17
     const val MIN_SDK = 21
-    const val TARGET_SDK = 33
+    const val TARGET_SDK = 37
     const val APPLICATION_ID = "com.grab.android.sample"
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 }
