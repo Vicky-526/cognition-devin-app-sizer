@@ -33,9 +33,8 @@ task javadocJar(type: Jar) {
     from dokkaJavadocTask.map { it.outputDirectory }
 }
 
-artifacts {
-    archives javadocJar
-    archives sourcesJar
+tasks.named("assemble") {
+    dependsOn javadocJar, sourcesJar
 }
 
 private void configurePom(MavenPublication publication) {
@@ -120,9 +119,9 @@ afterEvaluate {
             }
 
             release(MavenPublication) { publication ->
-                groupId = project.findProperty("groupId")
+                groupId = rootProject.findProperty("groupId")
                 artifactId = project.name
-                version = project.findProperty("versionName")
+                version = rootProject.findProperty("versionName")
 
                 from components.java
 

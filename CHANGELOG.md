@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgraded toolchain and dependencies (Kotlin 2.4.21, Gradle 9.8.2, Clikt 5, Jackson 3, Dokka 2.2.0, bundletool 1.18.3, Gson 2.15.0, InfluxDB client 2.25, ...). Minimum supported AGP 9.0 / Gradle 9.1 / JDK 17 are unchanged
+- Dex parsing moved from the unmaintained `org.smali:dexlib2` 2.5.2 to Google's `com.android.tools.smali:smali-dexlib2` 3.0.10, which no longer counts (often shared) debug info in per-class sizes. APK totals are unchanged, but size attributed to codebase modules goes up and to libraries goes down compared with previous releases
+
 ### Fixed
 - Library ownership: version-less `group:artifact` patterns now match any version of the artifact. Previously they matched nothing, silently leaving such libraries unattributed (`NA`), since real coordinates always carry a version
 

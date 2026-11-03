@@ -28,10 +28,9 @@
 package com.grab.sizer.config
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
-import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.readValue
+import tools.jackson.dataformat.yaml.YAMLMapper
+import tools.jackson.module.kotlin.KotlinModule
+import tools.jackson.module.kotlin.readValue
 import java.io.File
 
 data class Config(
@@ -42,12 +41,12 @@ data class Config(
 
 
 class ConfigYmlLoader() {
-    fun load(configFile: File): Config = ObjectMapper(YAMLFactory()).run {
-        registerModule(
+    fun load(configFile: File): Config = YAMLMapper.builder()
+        .addModule(
             KotlinModule.Builder()
                 .build()
         )
-        readValue(configFile)
-    }
+        .build()
+        .readValue(configFile)
 }
 

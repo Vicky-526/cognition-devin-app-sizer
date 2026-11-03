@@ -27,12 +27,12 @@
 
 package com.grab.sizer.config
 
-import com.fasterxml.jackson.core.JsonParser
-import com.fasterxml.jackson.databind.DeserializationContext
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer
-import com.fasterxml.jackson.module.kotlin.contains
+import tools.jackson.core.JsonParser
+import tools.jackson.databind.DeserializationContext
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.annotation.JsonDeserialize
+import tools.jackson.databind.deser.std.StdDeserializer
+import tools.jackson.module.kotlin.contains
 import java.io.File
 
 private const val DEFAULT_LARGE_FILE = 10240L // 10kb
@@ -54,19 +54,20 @@ data class ProjectInputConfig(
 
 }
 
-class ProjectInputConfigDeserializer(vc: Class<*>? = null) : StdDeserializer<ProjectInputConfig>(vc) {
+class ProjectInputConfigDeserializer(vc: Class<*>? = null) :
+    StdDeserializer<ProjectInputConfig>(vc ?: ProjectInputConfig::class.java) {
     override fun deserialize(jsonParser: JsonParser, ctxt: DeserializationContext): ProjectInputConfig =
-        jsonParser.codec.readTree<JsonNode>(jsonParser).run {
+        ctxt.readTree(jsonParser).run {
             ProjectInputConfig(
-                version = get("version").asText(),
+                version = get("version").asString(),
                 largeFileThreshold = if (contains("large-file-threshold")) get("large-file-threshold").asLong() else DEFAULT_LARGE_FILE,
-                projectName = get("project-name").asText(),
-                librariesDirectory = File(get("libraries-directory").asText()),
-                modulesDirectory = File(get("modules-directory").asText()),
-                r8MappingFile = if (contains("r8-mapping-file")) File(get("r8-mapping-file").asText()) else null,
-                ownerMappingFile = if (contains("owner-mapping-file")) File(get("owner-mapping-file").asText()) else null,
-                libraryOwnerMappingFile = if (contains("library-owner-mapping-file")) File(get("library-owner-mapping-file").asText()) else null,
-                projectRoot = if (contains("project-root-dir")) File(get("project-root-dir").asText()) else File(get("modules-directory").asText()),
+                projectName = get("project-name").asString(),
+                librariesDirectory = File(get("libraries-directory").asString()),
+                modulesDirectory = File(get("modules-directory").asString()),
+                r8MappingFile = if (contains("r8-mapping-file")) File(get("r8-mapping-file").asString()) else null,
+                ownerMappingFile = if (contains("owner-mapping-file")) File(get("owner-mapping-file").asString()) else null,
+                libraryOwnerMappingFile = if (contains("library-owner-mapping-file")) File(get("library-owner-mapping-file").asString()) else null,
+                projectRoot = if (contains("project-root-dir")) File(get("project-root-dir").asString()) else File(get("modules-directory").asString()),
             )
         }
 }

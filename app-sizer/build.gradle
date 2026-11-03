@@ -39,7 +39,7 @@ dependencies {
     compileOnly libs.android.tools.common
 
     implementation libs.org.influxdb.client
-    implementation libs.org.smali.dexlib2
+    implementation libs.android.tools.smali.dexlib2
     implementation libs.android.tools.apkanalyzer
     implementation libs.guava
     implementation libs.gson

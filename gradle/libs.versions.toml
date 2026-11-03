@@ -1,19 +1,19 @@
 [versions]
-gradle-plugin-publish = "2.1.1"
-android-gradle-plugin = "9.0.1"
-kotlin = "2.3.21"
-dexlib2 = "2.5.2"
-clikt = "4.4.0"
-bundletool = "1.18.1"
+gradle-plugin-publish = "2.2.1"
+android-gradle-plugin = "9.5.0"
+kotlin = "2.4.21"
+smali-dexlib2 = "3.0.10"
+clikt = "5.1.0"
+bundletool = "1.18.3"
 apkanalyzer = "32.0.1"
 common = "32.0.1"
-jackson = "2.15.0"
-guava = "33.2.1-jre"
-gson = "2.10.1"
-influxdbClient = "2.24"
-shadow-jar = "9.0.2"
+jackson = "3.2.4"
+guava = "33.8.0-jre"
+gson = "2.15.0"
+influxdbClient = "2.25"
+shadow-jar = "9.6.1"
 nexus = "2.0.0"
-dokka = "2.1.0"
+dokka = "2.2.0"
 
 # Tests
 junit = "4.13.2"
@@ -23,13 +23,13 @@ android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref
 android-gradle-api = { module = "com.android.tools.build:gradle-api", version.ref = "android-gradle-plugin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-org-smali-dexlib2 = { module = "org.smali:dexlib2", version.ref = "dexlib2" }
+android-tools-smali-dexlib2 = { module = "com.android.tools.smali:smali-dexlib2", version.ref = "smali-dexlib2" }
 clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt" }
 android-tools-bundletool = { module = "com.android.tools.build:bundletool", version.ref = "bundletool" }
 android-tools-apkanalyzer = { module = "com.android.tools.apkparser:apkanalyzer", version.ref = "apkanalyzer" }
 android-tools-common = { module = "com.android.tools:common", version.ref = "common" }
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
-jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
+jackson-module-kotlin = { module = "tools.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jackson-dataformat-yaml = { module = "tools.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 org-influxdb-client = { module = "org.influxdb:influxdb-java", version.ref = "influxdbClient" }
