@@ -39,6 +39,7 @@ import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
+import org.gradle.work.DisableCachingByDefault
 
 /**
  * Writes the list of [ArchiveDependency] contributing to a variant to a json file, which
@@ -47,6 +48,7 @@ import org.gradle.api.tasks.TaskAction
  * The entries are resolved lazily from the variant's runtime classpath (see
  * [VariantArtifacts]); this task only serializes the result.
  */
+@DisableCachingByDefault(because = "Only serializes the resolved archive list; cheaper to regenerate than to cache")
 internal abstract class GenerateArchivesListTask : DefaultTask() {
 
     @get:Input

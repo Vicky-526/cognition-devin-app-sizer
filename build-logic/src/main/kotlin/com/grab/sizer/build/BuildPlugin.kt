@@ -31,8 +31,8 @@ import com.grab.sizer.gradle.ConfigurablePlugin
 
 class BuildPlugin : ConfigurablePlugin({
     allprojects {
-        group = project.findProperty("groupId")!!
-        version = project.findProperty("versionName")!!
+        group = rootProject.findProperty("groupId")!!
+        version = rootProject.findProperty("versionName")!!
         description = "A tool designed to analyze the download size of Android applications"
     }
 })
